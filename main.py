@@ -18,8 +18,13 @@ options.add_argument('--headless')  # 브라우저 창을 띄우지 않고 실�
 driver = webdriver.Chrome(service=webdriver_service, options=options)
 
 # 웹 페이지 열기
-url = "https://learn.microsoft.com/ko-kr/users/minjuncha-9657/"
+url = input("Microsoft Learn 프로필 링크를 입력해주세요: ")
 driver.get(url)
+
+print("\n* `AZ-900`: 애저 기초 챌린지\n* `AI-900`: 애저 AI 기초 챌린지\n* `DP-900`: 애저 데이터 기초 챌린지\n* `PL-900`: 파워 플랫폼 기초 챌린지\n* `SC-900`: 보안 기초 챌린지\n* `MS-900`: Microsoft365 기초 챌린지")
+print("\n완료를 확인하고 싶은 챌린지 코드를 입력해 주세요: ")
+print("예시 : AZ-900\n")
+challenge=input("코드 입력: ")
 
 # 대기 설정
 ## 웹페이지 실행하자마자 트로피 정보가 뜨는 게 아니라 정보 로드될 때까지 기다려야 함
@@ -95,20 +100,42 @@ if "MS-900 Microsoft 365 기본 사항: Microsoft 365 앱 및 서비스 설명" 
 if "MS-900 Microsoft 365 기본 사항: Microsoft 365 가격 책정, 라이선스 및 지원 설명" not in A:
     Flag_ms_900 = 0
 
-print(url)
-if Flag_az_900 == 1:
-    print("az-900")
-if Flag_ai_900 == 1:
-    print("ai-900")
-if Flag_dp_900 == 1:
-    print("dp-900")
-if Flag_pl_900 == 1:
-    print("pl-900")
-if Flag_sc_900 == 1:
-    print("sc-900")
-if Flag_ms_900 == 1:
-    print("ms-900")
 
+if challenge=="AZ-900":
+    if Flag_az_900 == 1:
+        print("AZ-900 완료 /ok")
+    else:
+        print("AZ-900 NO")
+
+if challenge=="AI-900":
+    if Flag_ai_900 == 1:
+        print("AI-900 완료 /ok")
+    else:
+        print("AI-900 NO")
+
+if challenge=="DP-900":
+    if Flag_dp_900 == 1:
+        print("DP-900 완료 /ok")
+    else:
+        print("DP-900 NO")
+
+if challenge=="PL-900":
+    if Flag_pl_900 == 1:
+        print("PL-900 완료 /ok")
+    else:
+        print("PL-900 NO")
+
+if challenge=="SC-900":
+    if Flag_sc_900 == 1:
+        print("SC-900 완료 /ok")
+    else:
+        print("SC-900 NO")
+
+if challenge=="MS-900":
+    if Flag_ms_900 == 1:
+        print("MS-900 완료 /ok")
+    else:
+        print("MS-900 NO")
 
 # Selenium 사용 완료 후 브라우저 종료
 driver.quit()
